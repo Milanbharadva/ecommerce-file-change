@@ -179,19 +179,7 @@ public class ActOrderDetails extends BaseActivity {
                                 TextView btnCancelorder = dialogView.findViewById(R.id.tvcancelorder);
                                 TextView btnTrackorder = dialogView.findViewById(R.id.tvtrackorder);
                                 TextView btnCancel = dialogView.findViewById(R.id.tvCancel);
-                                TextView btnRetuenRequest = dialogView.findViewById(R.id.tvReturnReq);
                                 View viewreturnrequest = dialogView.findViewById(R.id.view2);
-                                if (orderstatus.equals("4")) {
-                                    btnRetuenRequest.setVisibility(View.VISIBLE);
-                                    viewreturnrequest.setVisibility(View.VISIBLE);
-                                } else {
-                                    btnRetuenRequest.setVisibility(View.GONE);
-                                    viewreturnrequest.setVisibility(View.GONE);
-                                }
-                                if (orderstatus.equals("7")) {
-                                    btnRetuenRequest.setVisibility(View.GONE);
-                                    viewreturnrequest.setVisibility(View.GONE);
-                                }
                                 btnCancel.setOnClickListener(view1 -> {
                                     dialog.dismiss();
                                     onResume();

@@ -10,14 +10,12 @@ public class GetProductDetailsResponse {
     @SerializedName("data")
     private ProductDetailsData data;
 
-    @SerializedName("returnpolicy")
-    private Returnpolicy returnpolicy;
+
 
     @SerializedName("message")
     private String message;
 
-    @SerializedName("vendors")
-    private Vendors vendors;
+
 
     @SerializedName("related_products")
     private ArrayList<RelatedProductsItem> relatedProducts;
@@ -33,13 +31,9 @@ public class GetProductDetailsResponse {
         this.data = data;
     }
 
-    public Returnpolicy getReturnpolicy() {
-        return returnpolicy;
-    }
 
-    public void setReturnpolicy(Returnpolicy returnpolicy) {
-        this.returnpolicy = returnpolicy;
-    }
+
+
 
     public String getMessage() {
         return message;
@@ -49,13 +43,7 @@ public class GetProductDetailsResponse {
         this.message = message;
     }
 
-    public Vendors getVendors() {
-        return vendors;
-    }
 
-    public void setVendors(Vendors vendors) {
-        this.vendors = vendors;
-    }
 
     public ArrayList<RelatedProductsItem> getRelatedProducts() {
         return relatedProducts;

@@ -379,18 +379,7 @@ public class HomeFragment extends BaseFragment<FragHomeBinding> {
                                 fragHomeBinding.tvViewAllfp.setVisibility(View.GONE);
                                 fragHomeBinding.view1.setVisibility(View.GONE);
                             }
-                            if (restResponce.getVendors() != null && restResponce.getVendors().size() > 0) {
-                                loadVendors(restResponce.getVendors());
-                                fragHomeBinding.rvvendors.setVisibility(View.GONE);
-                                fragHomeBinding.tvvendors.setVisibility(View.GONE);
-                                fragHomeBinding.tvViewAllvendors.setVisibility(View.GONE);
-                                fragHomeBinding.view3.setVisibility(View.GONE);
-                            } else {
-                                fragHomeBinding.rvvendors.setVisibility(View.GONE);
-                                fragHomeBinding.tvvendors.setVisibility(View.GONE);
-                                fragHomeBinding.tvViewAllvendors.setVisibility(View.GONE);
-                                fragHomeBinding.view3.setVisibility(View.GONE);
-                            }
+
                             if (newProductsList != null && newProductsList.size() > 0) {
                                 loadNewProduct(newProductsList, restResponce.getCurrency(), restResponce.getCurrencyPosition());
                                 fragHomeBinding.tvnewArrivals.setVisibility(View.VISIBLE);
@@ -556,11 +545,7 @@ private void loadFeaturedProducts(
                 }
             });
 
-            if (featuredProductsList.get(position).getRattings().size() == 0) {
-                binding[0].tvRatePro.setText("0.0");
-            } else {
-                binding[0].tvRatePro.setText(featuredProductsList.get(position).getRattings().get(0).getAvgRatting().toString());
-            }
+
 
             binding[0].tvProductName.setText(featuredProductsList.get(position).getProductName());
 
@@ -677,44 +662,6 @@ private void loadPagerImagesBottomBanner(ArrayList<BottombannerItem> bottombanne
 }
 
 //TODO Vendors Adapter
-private void loadVendors(ArrayList<VendorsItem> vendorsList) {
-    final com.webmintinfotech.ecom.databinding.RowVendorsBinding[] binding = {null};
-    BaseAdaptor<VendorsItem, RowVendorsBinding> vendorsAdapter = new BaseAdaptor<VendorsItem, RowVendorsBinding>(requireActivity(), vendorsList) {
-        @SuppressLint({"NewApi", "ResourceType"})
-        @Override
-        public void onBindData(
-                RecyclerView.ViewHolder holder,
-                VendorsItem val,
-                int position
-        ) {
-            binding[0].tvVendorsName.setText(vendorsList.get(position).getName());
-            Glide.with(requireActivity()).load(vendorsList.get(position).getImageUrl())
-                    .into(binding[0].ivvendors);
-
-        }
-
-        @Override
-        public int setItemLayout() {
-            return R.layout.row_vendors;
-        }
-
-        @Override
-        public RowVendorsBinding getBinding(ViewGroup parent) {
-            binding[0] = RowVendorsBinding.inflate(
-                    LayoutInflater.from(parent.getContext()),
-                    parent,
-                    false
-            );
-            return binding[0];
-        }
-    };
-    if (isAdded()) {
-
-        fragHomeBinding.rvvendors.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        fragHomeBinding.rvvendors.setItemAnimator(new DefaultItemAnimator());
-        fragHomeBinding.rvvendors.setAdapter(vendorsAdapter);
-    }
-}
 
 //TODO New Product Adapter
 private void loadNewProduct(ArrayList<NewProductsItem> newProductsList, String currency, String currencyPosition) {
@@ -724,11 +671,7 @@ private void loadNewProduct(ArrayList<NewProductsItem> newProductsList, String c
         @Override
         public void onBindData(RecyclerView.ViewHolder holder, NewProductsItem val, int position) {
             binding[0] = ((ViewHolder) holder).getBinding();
-            if (newProductsList.get(position).getRattings().size() == 0) {
-                binding[0].tvRatePro.setText("0.0");
-            } else {
-                binding[0].tvRatePro.setText(newProductsList.get(position).getRattings().get(0).getAvgRatting().toString());
-            }
+
 
             if (newProductsList.get(position).getIsWishlist() == 0) {
                 binding[0].ivwishlist.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_dislike, null));
@@ -909,11 +852,7 @@ private void loadHotDeals(ArrayList<HotProductsItem> hotdealsList, String curren
         @SuppressLint({"NewApi", "ResourceType", "SetTextI18n"})
         @Override
         public void onBindData(RecyclerView.ViewHolder holder, HotProductsItem val, int position) {
-            if (hotdealsList.get(position).getRattings().size() == 0) {
-                binding[0].tvRatePro.setText("0.0");
-            } else {
-                binding[0].tvRatePro.setText(hotdealsList.get(position).getRattings().get(0).getAvgRatting().toString());
-            }
+
 
             if (hotdealsList.get(position).getIsWishlist() == 0) {
                 binding[0].ivwishlist.setImageDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_dislike, null));

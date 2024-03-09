@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 public class ProductReviewResponse {
 
-    @SerializedName("reviews")
-    private Reviews reviews;
+
 
     @SerializedName("all_review")
     private AllReview allReview;
@@ -17,9 +16,6 @@ public class ProductReviewResponse {
     @SerializedName("status")
     private Integer status;
 
-    public Reviews getReviews() {
-        return reviews;
-    }
 
     public AllReview getAllReview() {
         return allReview;

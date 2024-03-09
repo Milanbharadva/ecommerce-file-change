@@ -115,11 +115,7 @@ public class RelatedProductsAdapter extends RecyclerView.Adapter<RelatedProducts
             context.startActivity(intent);
         });
 
-        if (viewAll.getRattings() != null && viewAll.getRattings().size() > 0) {
-            holder.tvRatePro.setText(viewAll.getRattings().get(0).getAvgRatting().toString());
-        } else {
-            holder.tvRatePro.setText("0.0");
-        }
+
     }
 
     //TODO CALL API REMOVE FAVOURITE

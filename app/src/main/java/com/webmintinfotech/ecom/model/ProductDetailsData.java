@@ -12,8 +12,7 @@ public class ProductDetailsData {
     @SerializedName("free_shipping")
     private Integer freeShipping;
 
-    @SerializedName("rattings")
-    private ArrayList<Rattings> rattings;
+
 
     @SerializedName("description")
     private String description;
@@ -97,13 +96,7 @@ public class ProductDetailsData {
         this.freeShipping = freeShipping;
     }
 
-    public ArrayList<Rattings> getRattings() {
-        return rattings;
-    }
 
-    public void setRattings(ArrayList<Rattings> rattings) {
-        this.rattings = rattings;
-    }
 
     public String getDescription() {
         return description;

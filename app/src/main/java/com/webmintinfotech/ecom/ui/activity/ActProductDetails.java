@@ -23,11 +23,9 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.interfaces.ItemClickListener;
 import com.denzcoskun.imageslider.models.SlideModel;
@@ -48,7 +46,6 @@ import com.webmintinfotech.ecom.model.ProductDetailsData;
 import com.webmintinfotech.ecom.model.ProductimagesItem;
 import com.webmintinfotech.ecom.model.RelatedProductsItem;
 import com.webmintinfotech.ecom.model.VariationsItem;
-import com.webmintinfotech.ecom.model.Vendors;
 import com.webmintinfotech.ecom.ui.authentication.ActLogin;
 import com.webmintinfotech.ecom.utils.Common;
 import com.webmintinfotech.ecom.utils.SharePreference;
@@ -149,9 +146,7 @@ public class ActProductDetails extends BaseActivity {
                         } else {
                             productDetailsBinding.rvstorelist.setVisibility(View.GONE);
                         }
-                        if (restResponce.getVendors() != null) {
-                            loadVendorsData(restResponce.getVendors());
-                        }
+
 
 
 
@@ -174,12 +169,7 @@ public class ActProductDetails extends BaseActivity {
     }
 
     //TODO VENDORS DATA SET
-    private void loadVendorsData(Vendors vendors) {
 
-
-
-
-    }
 
 //    TODO RELATED PRODUCT DETAILS DATA SET
 //    private void loadRelatedProducts(ArrayList<RelatedProductsItem> relatedProducts) {
@@ -274,11 +264,7 @@ public class ActProductDetails extends BaseActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     @SuppressLint({"ResourceAsColor", "SetTextI18n", "NotifyDataSetChanged", "UseCompatLoadingForDrawables"})
     private void loadProductDetails(ProductDetailsData productDetailsList) {
-        if (productDetailsList.getRattings() != null && productDetailsList.getRattings().size() == 0) {
-            productDetailsBinding.tvRatePro.setText("0.0");
-        } else {
-            productDetailsBinding.tvRatePro.setText(productDetailsList.getRattings().get(0).getAvgRatting().toString());
-        }
+
         paymenttype = productDetailsList.getTaxType() != null ? productDetailsList.getTaxType() : "";
         productDetailsBinding.tvproduct.setText(productDetailsList.getCategoryName() + " | " + productDetailsList.getSubcategoryName() + " | " + productDetailsList.getInnersubcategoryName());
         productDetailsBinding.tvproducttitle.setText(productDetailsList.getProductName());

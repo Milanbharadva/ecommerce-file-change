@@ -9,8 +9,7 @@ import java.util.ArrayList;
 
 public class FeaturedProductsItem implements Parcelable {
 
-    @SerializedName("rattings")
-    private ArrayList<Rattings> rattings;
+
 
     @SerializedName("is_variation")
     private Integer isVariation;
@@ -27,13 +26,7 @@ public class FeaturedProductsItem implements Parcelable {
     @SerializedName("product_name")
     private String productName;
 
-    public ArrayList<Rattings> getRattings() {
-        return rattings;
-    }
 
-    public void setRattings(ArrayList<Rattings> rattings) {
-        this.rattings = rattings;
-    }
 
     public Integer getIsVariation() {
         return isVariation;

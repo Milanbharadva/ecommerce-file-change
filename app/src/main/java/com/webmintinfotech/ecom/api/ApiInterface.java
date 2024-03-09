@@ -8,27 +8,20 @@ import com.webmintinfotech.ecom.model.CmsPageResponse;
 import com.webmintinfotech.ecom.model.GetAddressResponse;
 import com.webmintinfotech.ecom.model.GetCartResponse;
 import com.webmintinfotech.ecom.model.GetCheckOutResponse;
-import com.webmintinfotech.ecom.model.GetCouponResponse;
 import com.webmintinfotech.ecom.model.GetFilterResponse;
 import com.webmintinfotech.ecom.model.GetProductDetailsResponse;
 import com.webmintinfotech.ecom.model.GetProfileResponse;
-import com.webmintinfotech.ecom.model.GetVendorDetailsResponse;
 import com.webmintinfotech.ecom.model.GetWishListResponse;
 import com.webmintinfotech.ecom.model.HomefeedResponse;
 import com.webmintinfotech.ecom.model.LoginModel;
-import com.webmintinfotech.ecom.model.NotificationsResponse;
 import com.webmintinfotech.ecom.model.OrderDetailsResponse;
 import com.webmintinfotech.ecom.model.OrderHistoryResponse;
-import com.webmintinfotech.ecom.model.OrderRetuenRequestResponse;
 import com.webmintinfotech.ecom.model.PaymentListResponse;
 import com.webmintinfotech.ecom.model.ProductResponse;
 import com.webmintinfotech.ecom.model.ProductReviewResponse;
 import com.webmintinfotech.ecom.model.RegistrationModel;
-import com.webmintinfotech.ecom.model.SearchProductResponse;
 import com.webmintinfotech.ecom.model.SubCategoriesResponse;
 import com.webmintinfotech.ecom.model.TrackOrderResponse;
-import com.webmintinfotech.ecom.model.VendorsDetailsResponse;
-import com.webmintinfotech.ecom.model.VendorsResponse;
 import com.webmintinfotech.ecom.model.ViewAllListResponse;
 import com.webmintinfotech.ecom.model.WalletResponse;
 import com.google.gson.JsonObject;
@@ -116,8 +109,7 @@ public interface ApiInterface {
     @POST("productdetails")
     Call<GetProductDetailsResponse> getProductDetails(@Body HashMap<String, String> map);
 
-    @POST("vendorproducts")
-    Call<GetVendorDetailsResponse> getVendorProducts(@Body HashMap<String, String> map);
+
 
     @POST("productreview")
     Call<ProductReviewResponse> getProductReview(@Body HashMap<String, String> map);
@@ -128,14 +120,9 @@ public interface ApiInterface {
     @POST("brandsproducts")
     Call<BrandDetailsResponse> getBrandDetails(@Query("page") String page, @Body HashMap<String, String> map);
 
-    @GET("vendors")
-    Call<VendorsResponse> getVendors(@Query("page") String page);
 
-    @POST("vendorproducts")
-    Call<VendorsDetailsResponse> getVendorsDetails(@Query("page") String page, @Body HashMap<String, String> map);
 
-    @POST("notification")
-    Call<NotificationsResponse> getNotificatios(@Query("page") String page, @Body HashMap<String, String> map);
+
 
     @POST("orderdetails")
     Call<OrderDetailsResponse> getOrderDetails(@Body HashMap<String, String> map);
@@ -173,8 +160,6 @@ public interface ApiInterface {
     @POST("order")
     Call<SingleResponse> setOrderPayment(@Body HashMap<String, String> map);
 
-    @POST("searchproducts")
-    Call<SearchProductResponse> getSearchProducts(@Body HashMap<String, String> map);
 
     @POST("filter")
     Call<GetFilterResponse> getFilter(@Query("page") String page, @Body HashMap<String, String> map);
@@ -182,14 +167,9 @@ public interface ApiInterface {
     @POST("products")
     Call<ProductResponse> getProduct(@Query("page") String page, @Body HashMap<String, String> map);
 
-    @GET("coupons")
-    Call<GetCouponResponse> getCoupon(@Query("page") String page);
-
     @POST("wallet")
     Call<WalletResponse> getWallet(@Query("page") String page, @Body HashMap<String, String> map);
 
-    @POST("returnconditions")
-    Call<OrderRetuenRequestResponse> getOrderReturnRequest(@Body HashMap<String, String> map);
 
     @POST("returnrequest")
     Call<SingleResponse> returnRequest(@Body HashMap<String, String> map);

@@ -31,8 +31,7 @@ public class HomefeedResponse implements Parcelable {
     @SerializedName("referral_amount")
     private String referralAmount;
 
-    @SerializedName("vendors")
-    private ArrayList<VendorsItem> vendors;
+
 
     public ArrayList<FeaturedProductsItem> getFeaturedProducts() {
         return featuredProducts;
@@ -98,13 +97,8 @@ public class HomefeedResponse implements Parcelable {
         this.referralAmount = referralAmount;
     }
 
-    public ArrayList<VendorsItem> getVendors() {
-        return vendors;
-    }
 
-    public void setVendors(ArrayList<VendorsItem> vendors) {
-        this.vendors = vendors;
-    }
+
 
     public Integer getNotifications() {
         return notifications;

@@ -18,8 +18,7 @@ public class AllReview {
     @SerializedName("total")
     private Integer total;
 
-    @SerializedName("data")
-    private ArrayList<ReviewDataItem> data;
+
 
     @SerializedName("last_page")
     private Integer lastPage;
@@ -77,13 +76,8 @@ public class AllReview {
         this.total = total;
     }
 
-    public ArrayList<ReviewDataItem> getData() {
-        return data;
-    }
 
-    public void setData(ArrayList<ReviewDataItem> data) {
-        this.data = data;
-    }
+
 
     public Integer getLastPage() {
         return lastPage;
