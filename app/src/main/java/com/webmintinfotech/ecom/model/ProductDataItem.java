@@ -6,8 +6,6 @@ import java.util.ArrayList;
 
 public class ProductDataItem {
 
-    @SerializedName("rattings")
-    private ArrayList<ProductRattingsItem> rattings;
 
     @SerializedName("is_variation")
     private String isVariation;
@@ -36,13 +34,7 @@ public class ProductDataItem {
     @SerializedName("discounted_price")
     private String discountedPrice;
 
-    public ArrayList<ProductRattingsItem> getRattings() {
-        return rattings;
-    }
 
-    public void setRattings(ArrayList<ProductRattingsItem> rattings) {
-        this.rattings = rattings;
-    }
 
     public String getIsVariation() {
         return isVariation;

@@ -406,18 +406,7 @@ public class HomeFragment extends BaseFragment<FragHomeBinding> {
                             } else {
                                 fragHomeBinding.rvBrandBanner.setVisibility(View.GONE);
                             }
-                            if (restResponce.getBrands() != null && restResponce.getBrands().size() > 0) {
-                                loadBrands(restResponce.getBrands());
-                                fragHomeBinding.rvBrand.setVisibility(View.VISIBLE);
-                                fragHomeBinding.tvBrand.setVisibility(View.VISIBLE);
-                                fragHomeBinding.tvViewAllBrand.setVisibility(View.VISIBLE);
-                                fragHomeBinding.view6.setVisibility(View.VISIBLE);
-                            } else {
-                                fragHomeBinding.rvBrand.setVisibility(View.GONE);
-                                fragHomeBinding.tvBrand.setVisibility(View.GONE);
-                                fragHomeBinding.tvViewAllBrand.setVisibility(View.GONE);
-                                fragHomeBinding.view6.setVisibility(View.GONE);
-                            }
+
                             if (hotdealsList != null && hotdealsList.size() > 0) {
                                 loadHotDeals(hotdealsList, restResponce.getCurrency(), restResponce.getCurrencyPosition());
                                 fragHomeBinding.rvHotDeals.setVisibility(View.VISIBLE);
@@ -802,48 +791,6 @@ private void loadPagerImagesLeftBanner(ArrayList<LeftbannerItem> leftbannerList)
 }
 
 //TODO Brand Adapter
-private void loadBrands(ArrayList<BrandsItem> brandsList) {
-    final com.webmintinfotech.ecom.databinding.RowBrandBinding[] binding = {null};
-    BaseAdaptor<BrandsItem, RowBrandBinding> brandsAdapter = new BaseAdaptor<BrandsItem, RowBrandBinding>(requireActivity(), brandsList) {
-        @SuppressLint({"NewApi", "ResourceType"})
-        @Override
-        public void onBindData(RecyclerView.ViewHolder holder, BrandsItem val, int position) {
-            Glide.with(requireActivity())
-                    .load(brandsList.get(position).getImageUrl())
-                    .into(binding[0].ivBrands);
-            binding[0].clMain.setBackgroundColor(Color.parseColor(colorArray[position % 6]));
-            binding[0].ivBrands.setBackgroundColor(Color.parseColor(colorArray[position % 6]));
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.e("brand_id--->", String.valueOf(brandsList.get(position).getId()));
-
-                }
-            });
-        }
-
-        @Override
-        public int setItemLayout() {
-            return R.layout.row_brand;
-        }
-
-        @Override
-        public RowBrandBinding getBinding(ViewGroup parent) {
-            binding[0] = RowBrandBinding.inflate(
-                    LayoutInflater.from(parent.getContext()),
-                    parent,
-                    false
-            );
-            return binding[0];
-        }
-    };
-
-    if (isAdded()) {
-        fragHomeBinding.rvBrand.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        fragHomeBinding.rvBrand.setItemAnimator(new DefaultItemAnimator());
-        fragHomeBinding.rvBrand.setAdapter(brandsAdapter);
-    }
-}
 
 //TODO Hot Deals Adapter
 private void loadHotDeals(ArrayList<HotProductsItem> hotdealsList, String currency, String currencyPosition) {

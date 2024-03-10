@@ -1,8 +1,7 @@
 package com.webmintinfotech.ecom.api;
 
 import com.webmintinfotech.ecom.model.BannerResponse;
-import com.webmintinfotech.ecom.model.BrandDetailsResponse;
-import com.webmintinfotech.ecom.model.BrandResponse;
+
 import com.webmintinfotech.ecom.model.CategoriesResponse;
 import com.webmintinfotech.ecom.model.CmsPageResponse;
 import com.webmintinfotech.ecom.model.GetAddressResponse;
@@ -113,15 +112,6 @@ public interface ApiInterface {
 
     @POST("productreview")
     Call<ProductReviewResponse> getProductReview(@Body HashMap<String, String> map);
-
-    @GET("brands")
-    Call<BrandResponse> getBrands(@Query("page") String page);
-
-    @POST("brandsproducts")
-    Call<BrandDetailsResponse> getBrandDetails(@Query("page") String page, @Body HashMap<String, String> map);
-
-
-
 
 
     @POST("orderdetails")

@@ -10,8 +10,7 @@ public class HomefeedResponse implements Parcelable {
     @SerializedName("featured_products")
     private ArrayList<FeaturedProductsItem> featuredProducts;
 
-    @SerializedName("brands")
-    private ArrayList<BrandsItem> brands;
+
 
     @SerializedName("new_products")
     private ArrayList<NewProductsItem> newProducts;
@@ -41,13 +40,7 @@ public class HomefeedResponse implements Parcelable {
         this.featuredProducts = featuredProducts;
     }
 
-    public ArrayList<BrandsItem> getBrands() {
-        return brands;
-    }
 
-    public void setBrands(ArrayList<BrandsItem> brands) {
-        this.brands = brands;
-    }
 
     public ArrayList<NewProductsItem> getNewProducts() {
         return newProducts;
